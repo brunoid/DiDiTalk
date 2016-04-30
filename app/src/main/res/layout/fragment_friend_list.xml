@@ -9,10 +9,11 @@
     <!-- TODO: Update blank fragment layout -->
 
     <EditText
+        android:id="@+id/edit_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edit_searchbar"
         android:hint="search to name"
+        android:singleLine="true"
         android:layout_gravity="left|top" />
 
     <ListView
