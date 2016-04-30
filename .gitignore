@@ -29,7 +29,6 @@ local.properties
 .idea/vcs.xml
 .idea/encodings.xml
 .idea/gradle.xml
-.idea/misc.xml
 *.iml
 
 # OS-specific files
