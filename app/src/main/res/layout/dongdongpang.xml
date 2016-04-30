@@ -3,18 +3,16 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RadioButton
+    <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New RadioButton"
-        android:id="@+id/radioButton"
-        android:layout_gravity="center_horizontal" />
+        android:text="New CheckBox"
+        android:id="@+id/checkBox" />
 
-    <TextView
+    <ToggleButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="얍"
-        android:id="@+id/textView4"
+        android:text="New ToggleButton"
+        android:id="@+id/toggleButton"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>
