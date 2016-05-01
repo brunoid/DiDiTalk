@@ -52,12 +52,9 @@ public class ChatListFragment extends Fragment {
         chatListView.setAdapter(mAdapter);
         chatListView.setLayoutManager(layoutManager);
         initData();
-
-        chatListView.setOnClickListener(new View.OnClickListener() {
+        mAdapter.setOnItemClickListener(new ChatListAdapter.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), ChatRoomActivity.class);
-                startActivity(intent);
+            public void onItemClick(Friend f) {
             }
         });
 
@@ -85,7 +82,7 @@ public class ChatListFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_chatlist,menu);
+        inflater.inflate(R.menu.menu_chatlist, menu);
     }
 
     @Override

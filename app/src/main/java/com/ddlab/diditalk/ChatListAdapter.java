@@ -1,9 +1,11 @@
 package com.ddlab.diditalk;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +22,14 @@ public class ChatListAdapter extends  RecyclerView.Adapter<ChatlistViewHolder> {
     }
 
     @Override
-    public ChatlistViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ChatlistViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_chat_list, parent, false);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //mListener.onItemClick();
+            }
+        });
         ChatlistViewHolder vHolder = new ChatlistViewHolder(view);
         return vHolder;
 
@@ -37,6 +45,13 @@ public class ChatListAdapter extends  RecyclerView.Adapter<ChatlistViewHolder> {
         return items.size();
     }
 
+    public interface OnItemClickListener{
+        public void onItemClick(Friend f);
+    }
 
+    OnItemClickListener mListener;
+    public void setOnItemClickListener(OnItemClickListener listener){
+        mListener = listener;
+    }
 
 }
