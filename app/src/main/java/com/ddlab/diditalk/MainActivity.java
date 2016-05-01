@@ -23,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
 
         tabs.setupWithViewPager(pager);
         tabs.removeAllTabs();
-        tabs.addTab(tabs.newTab().setTag("tab1").setIcon(R.mipmap.ic_launcher));
-        tabs.addTab(tabs.newTab().setTag("tab2").setIcon(R.mipmap.ic_launcher));
-        tabs.addTab(tabs.newTab().setTag("tab3").setIcon(R.mipmap.ic_launcher));
+        tabs.addTab(tabs.newTab().setTag("tab1").setText("friends"));
+        tabs.addTab(tabs.newTab().setTag("tab2").setText("chat"));
+        tabs.addTab(tabs.newTab().setTag("tab3").setText("more"));
 
     }
 }

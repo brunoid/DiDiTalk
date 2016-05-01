@@ -5,18 +5,6 @@
     tools:context="com.ddlab.diditalk.ChatListFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Heebin;s Chat List"
-        android:id="@+id/textView"
-        android:layout_gravity="center" />
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
@@ -25,5 +13,11 @@
         android:id="@+id/btn_fab"
         android:src="@mipmap/ic_launcher"
         android:layout_margin="12dp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/chat_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|top" />
 
 </FrameLayout>

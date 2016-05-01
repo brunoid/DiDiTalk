@@ -31,7 +31,7 @@ public class FriendListFragment extends Fragment implements LoaderManager.Loader
     EditText searchView;
     SimpleCursorAdapter mAdapter;
 
-    String[] projection = {Contacts._ID,Contacts.DISPLAY_NAME,};
+    String[] projection = {Contacts._ID,Contacts.DISPLAY_NAME};
     String selection = "(("+ Contacts.DISPLAY_NAME + " NOT NULL) AND (" +
             Contacts.DISPLAY_NAME + " != ''))";
     String sortOrder = Contacts.DISPLAY_NAME + " COLLATE LOCALIZED ASC";
@@ -61,6 +61,13 @@ public class FriendListFragment extends Fragment implements LoaderManager.Loader
         int[] to = {android.R.id.text1};
         mAdapter = new SimpleCursorAdapter(getContext(), android.R.layout.simple_list_item_1, null, from, to, 0);
 
+        mAdapter.setViewBinder(new SimpleCursorAdapter.ViewBinder() {
+            @Override
+            public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
+                return false;
+            }
+        });
+
         listView.setAdapter(mAdapter);
         searchView.addTextChangedListener(new TextWatcher() {
             @Override
@@ -79,8 +86,10 @@ public class FriendListFragment extends Fragment implements LoaderManager.Loader
             public void afterTextChanged(Editable s) {
             }
         });
+
         getLoaderManager().initLoader(0, null, this);
         return view;
+
     }
 
 
