@@ -28,6 +28,5 @@ public class MainActivity extends AppCompatActivity {
         tabs.addTab(tabs.newTab().setTag("tab1").setText("friends"));
         tabs.addTab(tabs.newTab().setTag("tab2").setText("chat"));
         tabs.addTab(tabs.newTab().setTag("tab3").setText("more"));
-
     }
 }
