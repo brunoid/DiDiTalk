@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 
 import com.ddlab.diditalk.R;
 import com.ddlab.diditalk.data.Receiver;
-import com.ddlab.diditalk.data.ui.ReceiverViewHolder;
+import com.ddlab.diditalk.adapter.ui.ReceiverViewHolder;
 import com.ddlab.diditalk.data.Sender;
-import com.ddlab.diditalk.data.ui.SenderViewHolder;
+import com.ddlab.diditalk.adapter.ui.SenderViewHolder;
 import com.ddlab.diditalk.data.ChatData;
 
 import java.util.ArrayList;

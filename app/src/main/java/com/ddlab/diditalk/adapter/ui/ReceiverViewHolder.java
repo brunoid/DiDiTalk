@@ -1,4 +1,4 @@
-package com.ddlab.diditalk.data.ui;
+package com.ddlab.diditalk.adapter.ui;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
