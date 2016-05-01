@@ -54,18 +54,20 @@ public class ChatListFragment extends Fragment {
         mAdapter = new ChatListAdapter();
         chatListView.setAdapter(mAdapter);
         chatListView.setLayoutManager(layoutManager);
-        initData();
         mAdapter.setOnItemClickListener(new ChatListAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(Friend f) {
+            public void onItemClick(int position) {
+                Intent intent = new Intent(getContext(), ChatRoomActivity.class);
+                startActivity(intent);
             }
         });
+
+        initData();
 
         fab = (FloatingActionButton) view.findViewById(R.id.btn_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "comming soong Chat Room Civil War", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getContext(), ChatRoomActivity.class);
                 startActivity(intent);
             }
@@ -75,10 +77,10 @@ public class ChatListFragment extends Fragment {
     }
 
     private void initData() {
-        for(int i = 0; i < 40; i++){
+        for (int i = 0; i < 40; i++) {
             Friend f = new Friend();
-            f.setName("박희빈"+i);
-            f.setChatLastMsg("디디톡 좋아~ 디디디디디~");
+            f.setName("박희빈" + i);
+            f.setChatLastMsg("클릭하시면 다른 안드폰으로 접속하신분과 대화할수 있습니다~");
             f.setPhoto(ContextCompat.getDrawable(getContext(), R.drawable.ic_launcher));
             mAdapter.add(f);
         }
@@ -99,4 +101,6 @@ public class ChatListFragment extends Fragment {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }

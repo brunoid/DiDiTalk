@@ -1,10 +1,11 @@
 package com.ddlab.diditalk.activity;
 
 
-
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.provider.ContactsContract.Contacts;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
@@ -20,10 +21,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
-
-import android.provider.ContactsContract.*;
 import android.widget.Toast;
 
 import com.ddlab.diditalk.R;
@@ -38,7 +38,9 @@ public class FriendListFragment extends Fragment implements LoaderManager.Loader
     EditText searchView;
     SimpleCursorAdapter mAdapter;
 
-    String[] projection = {Contacts._ID,Contacts.DISPLAY_NAME};
+    String[] projection = {ContactsContract.Contacts._ID,
+            ContactsContract.Contacts.DISPLAY_NAME,
+            ContactsContract.Contacts.PHOTO_URI };
     String selection = "(("+ Contacts.DISPLAY_NAME + " NOT NULL) AND (" +
             Contacts.DISPLAY_NAME + " != ''))";
     String sortOrder = Contacts.DISPLAY_NAME + " COLLATE LOCALIZED ASC";
@@ -65,9 +67,9 @@ public class FriendListFragment extends Fragment implements LoaderManager.Loader
         searchView = (EditText) view.findViewById(R.id.edit_search);
         listView = (ListView) view.findViewById(R.id.friend_list);
 
-        String[] from = {Contacts.DISPLAY_NAME};
-        int[] to = {android.R.id.text1};
-        mAdapter = new SimpleCursorAdapter(getContext(), android.R.layout.simple_list_item_1, null, from, to, 0);
+        String[] from = {ContactsContract.Contacts.DISPLAY_NAME, Contacts.PHOTO_URI};
+        int[] to = {R.id.text_contact_name, R.id.img_contact_photo};
+        mAdapter = new SimpleCursorAdapter(getContext(), R.layout.view_friend_list, null, from, to, 0);
 
         mAdapter.setViewBinder(new SimpleCursorAdapter.ViewBinder() {
             @Override
@@ -77,6 +79,14 @@ public class FriendListFragment extends Fragment implements LoaderManager.Loader
         });
 
         listView.setAdapter(mAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getContext(), "현재 대화는 chat탭에서만 가능합니다~.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
         searchView.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

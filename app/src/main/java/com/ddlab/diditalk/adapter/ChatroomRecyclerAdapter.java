@@ -63,16 +63,16 @@ public class ChatroomRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        Log.d(TAG, "스위치 리턴값 확인: "+ getItemViewType(position));
+        Log.d(TAG, "스위치 리턴값 확인: " + getItemViewType(position));
         switch (getItemViewType(position)) {
 
             case SENDER_VIEW_TYPE: {
-
                 SenderViewHolder mHolder = (SenderViewHolder) holder;
-                Log.d(TAG, "gothhere: "+ mHolder.toString());
+                Log.d(TAG, "gothhere: " + mHolder.toString());
                 mHolder.setSender((Sender) items.get(position));
                 break;
             }
+
             case RECEIVER_VIEW_TYPE: {
                 ReceiverViewHolder mHolder = (ReceiverViewHolder) holder;
                 mHolder.setReceiver((Receiver) items.get(position));

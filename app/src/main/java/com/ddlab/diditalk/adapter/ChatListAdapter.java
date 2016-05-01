@@ -17,6 +17,7 @@ import java.util.List;
  */
 public class ChatListAdapter extends  RecyclerView.Adapter<ChatlistViewHolder> {
     List<Friend> items = new ArrayList<Friend>();
+    private OnItemClickListener mListener;
 
     public void add(Friend friend){
         items.add(friend);
@@ -26,20 +27,18 @@ public class ChatListAdapter extends  RecyclerView.Adapter<ChatlistViewHolder> {
     @Override
     public ChatlistViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_chat_list, parent, false);
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //mListener.onItemClick();
-            }
-        });
-        ChatlistViewHolder vHolder = new ChatlistViewHolder(view);
-        return vHolder;
-
+        return new ChatlistViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ChatlistViewHolder holder, int position) {
+    public void onBindViewHolder(final ChatlistViewHolder holder, final int position) {
         holder.setChatlist(items.get(position));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.onItemClick(position);
+            }
+        });
     }
 
     @Override
@@ -47,13 +46,15 @@ public class ChatListAdapter extends  RecyclerView.Adapter<ChatlistViewHolder> {
         return items.size();
     }
 
-    public interface OnItemClickListener{
-        public void onItemClick(Friend f);
+    public interface OnItemClickListener {
+        void onItemClick(int position);
     }
 
-    OnItemClickListener mListener;
-    public void setOnItemClickListener(OnItemClickListener listener){
+    public void setOnItemClickListener(OnItemClickListener listener) {
         mListener = listener;
     }
+
+
+
 
 }
