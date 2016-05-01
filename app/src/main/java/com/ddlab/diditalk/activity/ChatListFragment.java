@@ -1,6 +1,7 @@
 package com.ddlab.diditalk.activity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -65,6 +66,8 @@ public class ChatListFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getContext(), "comming soong Chat Room Civil War", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(), ChatRoomActivity.class);
+                startActivity(intent);
             }
         });
 
