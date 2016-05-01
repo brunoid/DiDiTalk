@@ -1,4 +1,4 @@
-package com.ddlab.diditalk;
+package com.ddlab.diditalk.activity;
 
 
 
@@ -25,6 +25,8 @@ import android.widget.ListView;
 
 import android.provider.ContactsContract.*;
 import android.widget.Toast;
+
+import com.ddlab.diditalk.R;
 
 
 /**

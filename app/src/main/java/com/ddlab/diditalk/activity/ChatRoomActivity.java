@@ -1,7 +1,9 @@
-package com.ddlab.diditalk;
+package com.ddlab.diditalk.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.ddlab.diditalk.R;
 
 public class ChatRoomActivity extends AppCompatActivity {
 

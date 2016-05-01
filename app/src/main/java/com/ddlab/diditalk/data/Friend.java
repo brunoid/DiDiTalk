@@ -1,4 +1,4 @@
-package com.ddlab.diditalk;
+package com.ddlab.diditalk.data;
 
 import android.graphics.drawable.Drawable;
 

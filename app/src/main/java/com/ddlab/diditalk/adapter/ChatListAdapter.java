@@ -1,11 +1,13 @@
-package com.ddlab.diditalk;
+package com.ddlab.diditalk.adapter;
 
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+
+import com.ddlab.diditalk.adapter.ui.ChatlistViewHolder;
+import com.ddlab.diditalk.data.Friend;
+import com.ddlab.diditalk.R;
 
 import java.util.ArrayList;
 import java.util.List;

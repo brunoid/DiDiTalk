@@ -1,8 +1,12 @@
-package com.ddlab.diditalk;
+package com.ddlab.diditalk.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.ddlab.diditalk.activity.ChatListFragment;
+import com.ddlab.diditalk.activity.FriendListFragment;
+import com.ddlab.diditalk.activity.MoreFragment;
 
 /**
  * Created by brunosong on 4/30/16.
