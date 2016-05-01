@@ -9,17 +9,22 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ListView;
 
 import android.provider.ContactsContract.*;
+import android.widget.Toast;
 
 
 /**
@@ -54,6 +59,7 @@ public class FriendListFragment extends Fragment implements LoaderManager.Loader
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_friend_list, container, false);
+        setHasOptionsMenu(true);
         searchView = (EditText) view.findViewById(R.id.edit_search);
         listView = (ListView) view.findViewById(R.id.friend_list);
 
@@ -114,5 +120,35 @@ public class FriendListFragment extends Fragment implements LoaderManager.Loader
     public void onLoaderReset(Loader<Cursor> loader) {
         mAdapter.swapCursor(null);
 
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_friendlist,menu);
+        MenuItem item = menu.findItem(R.id.menu_add_friend);
+        View view = MenuItemCompat.getActionView(item);
+        MenuItemCompat.setOnActionExpandListener(item, new MenuItemCompat.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem item) {
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem item) {
+                return true;
+            }
+        });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_add_friend :
+                Toast.makeText(getContext(), "친구추가 Coming soon", Toast.LENGTH_SHORT).show();
+            case R.id.menu_more:
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

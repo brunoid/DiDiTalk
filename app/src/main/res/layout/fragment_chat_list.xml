@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right|bottom"
         android:id="@+id/btn_fab"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/icon_add"
         android:layout_margin="12dp" />
 
     <android.support.v7.widget.RecyclerView

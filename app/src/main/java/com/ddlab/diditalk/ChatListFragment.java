@@ -1,13 +1,18 @@
 package com.ddlab.diditalk;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -40,13 +45,21 @@ public class ChatListFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_chat_list, container, false);
-
+        setHasOptionsMenu(true);
         chatListView = (RecyclerView) view.findViewById(R.id.chat_listview);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         mAdapter = new ChatListAdapter();
         chatListView.setAdapter(mAdapter);
         chatListView.setLayoutManager(layoutManager);
         initData();
+
+        chatListView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ChatRoomActivity.class);
+                startActivity(intent);
+            }
+        });
 
         fab = (FloatingActionButton) view.findViewById(R.id.btn_fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -67,5 +80,21 @@ public class ChatListFragment extends Fragment {
             f.setPhoto(ContextCompat.getDrawable(getContext(), R.drawable.ic_launcher));
             mAdapter.add(f);
         }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_chatlist,menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_more:
+                Toast.makeText(getContext(), "Setting page Coming soon", Toast.LENGTH_SHORT).show();
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

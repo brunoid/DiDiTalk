@@ -14,11 +14,14 @@
         android:layout_height="wrap_content"
         android:hint="search to name"
         android:singleLine="true"
-        android:layout_gravity="left|top" />
+        android:layout_gravity="left|top"
+
+        />
 
     <ListView
         android:layout_width="391dp"
         android:layout_height="468dp"
         android:id="@+id/friend_list"
-        android:layout_gravity="left|top" />
+        android:layout_gravity="left|top"
+        />
 </LinearLayout>
