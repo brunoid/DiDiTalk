@@ -48,10 +48,13 @@ public class ChatListFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_chat_list, container, false);
+
         setHasOptionsMenu(true);
+
         chatListView = (RecyclerView) view.findViewById(R.id.chat_listview);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         mAdapter = new ChatListAdapter();
+
         chatListView.setAdapter(mAdapter);
         chatListView.setLayoutManager(layoutManager);
         mAdapter.setOnItemClickListener(new ChatListAdapter.OnItemClickListener() {
@@ -62,8 +65,6 @@ public class ChatListFragment extends Fragment {
             }
         });
 
-        initData();
-
         fab = (FloatingActionButton) view.findViewById(R.id.btn_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +74,7 @@ public class ChatListFragment extends Fragment {
             }
         });
 
+        initData();
         return view;
     }
 
@@ -97,10 +99,7 @@ public class ChatListFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.menu_more:
                 Toast.makeText(getContext(), "Setting page Coming soon", Toast.LENGTH_SHORT).show();
-
         }
         return super.onOptionsItemSelected(item);
     }
-
-
 }
